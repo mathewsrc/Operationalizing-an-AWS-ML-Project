@@ -9,6 +9,25 @@ The right configuration for deployment is a very important step in machine learn
 
 Setup notebook instance
 
+Finding SageMaker in AWS
+
+![findsagemaker](https://user-images.githubusercontent.com/94936606/222783294-3d42a7cb-32bf-498a-916c-95feefe29724.PNG)
+
+
+In SageMaker we then create a notebook instance by looking for Notebook -> Notebook Instances
+
+![createanotebookinstance](https://user-images.githubusercontent.com/94936606/222784137-37d422bd-db21-4bb1-89ff-70dca3523689.PNG)
+
+
+Then we create a new instance choosing a notebook instance name and type
+
+![setupnotebookinstance](https://user-images.githubusercontent.com/94936606/222784354-13b28a70-3078-40a0-93e0-e1e0622d34d1.PNG)
+
+
+Bellow you can see a notebook instance called mlops already created
+
+![notebookinstance](https://user-images.githubusercontent.com/94936606/222784785-bca7aae8-4c4c-4c6b-b26b-76b9278b511e.PNG)
+
 
 Setup S3 
 
