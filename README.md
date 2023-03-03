@@ -153,3 +153,16 @@ With multi-instance
 
 
 EC2 Setup
+
+![findec2](https://user-images.githubusercontent.com/94936606/222843668-9fc36a82-23db-4569-a758-7512bd59d59a.PNG)
+
+
+![ec2instance](https://user-images.githubusercontent.com/94936606/222844655-55c3bb6b-a01b-4f8f-a2e6-b1de681a11a6.PNG)
+
+
+![amidetails](https://user-images.githubusercontent.com/94936606/222844621-a57b98fc-aa0f-4d68-84ed-33896845f477.PNG)
+
+
+Supported EC2 instances: G3, P3, P3dn, P4d, G5, G4dn. Release notes: https://docs.aws.amazon.com/dlami/latest/devguide/appendix-ami-release-notes.html
+
+
