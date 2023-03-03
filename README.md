@@ -128,7 +128,11 @@ Notice that training a model without enable multi-enable took 21 minutes to comp
 With multi-instance
 
 
+Deploying model
 
+```
+predictor = pytorch_model.deploy(initial_instance_count=1, instance_type='ml.m5.large')
+```
 
 
 
