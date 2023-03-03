@@ -162,7 +162,32 @@ EC2 Setup
 
 ![amidetails](https://user-images.githubusercontent.com/94936606/222844621-a57b98fc-aa0f-4d68-84ed-33896845f477.PNG)
 
+TODO: Why this instance, was ec2 more faster than notebook instance for training ? Looking into ec2 script what are the diferences between it and jupyter file ?
 
 Supported EC2 instances: G3, P3, P3dn, P4d, G5, G4dn. Release notes: https://docs.aws.amazon.com/dlami/latest/devguide/appendix-ami-release-notes.html
+
+
+Lambda Functions Setup
+
+![findlambda](https://user-images.githubusercontent.com/94936606/222853992-631e6366-8885-4dd8-b0d9-64a6ab14411c.PNG)
+
+![create a function](https://user-images.githubusercontent.com/94936606/222854008-addfa523-2e5d-41d7-bdd8-3c84e1ef0e69.PNG)
+
+![lambdadeployfunction](https://user-images.githubusercontent.com/94936606/222854041-8c45084e-ec59-406d-917b-41f15b88f074.PNG)
+
+![lambdaconfiguration](https://user-images.githubusercontent.com/94936606/222854048-4e323084-fc5d-4838-8fd9-e5256433343e.PNG)
+
+Adding SageMaker access permission to Lambda Function
+
+
+![findiam](https://user-images.githubusercontent.com/94936606/222854122-f0772d0a-7dee-4810-8e8f-5d300fdca799.PNG)
+
+![iamroletab](https://user-images.githubusercontent.com/94936606/222854145-4383cd67-d1e6-4d85-b772-0aee1807a48c.PNG)
+
+![iamaddpermissions](https://user-images.githubusercontent.com/94936606/222854165-88d3f1c9-4277-4dce-9e9d-3f08f09be906.PNG)
+
+![iamsagemakerpermissionsforlambda](https://user-images.githubusercontent.com/94936606/222854174-188a9f7a-3895-4387-b393-9688e53fd18f.PNG)
+
+
 
 
