@@ -124,6 +124,9 @@ Notice that training a model without enable multi-instance took 21 minutes to co
 
 ![trainingwithoutmultiinstance](https://user-images.githubusercontent.com/94936606/222796302-0d04321f-567e-4847-a8a9-d994ee4be04c.PNG)
 
+![trainingjobwithoutmultiinstanceconfigs](https://user-images.githubusercontent.com/94936606/222804951-c9385220-28da-4cc4-b6d8-b71f52a0f0ff.PNG)
+
+
 Deploying model
 
 We can check the deployed model in SageMaker -> Inference -> Endpoints
@@ -140,11 +143,7 @@ Bellow we can see the deployed model
 ![modeldeployedwithoutmultiinstance](https://user-images.githubusercontent.com/94936606/222797949-231ec90b-5dcd-46e4-80a8-8ac8047c85a9.PNG)
 
 
-![trainingjobwithoutmultiinstanceconfigs](https://user-images.githubusercontent.com/94936606/222804951-c9385220-28da-4cc4-b6d8-b71f52a0f0ff.PNG)
-
-
 With multi-instance
-
 
 
 ![trainingjobmultiinstance](https://user-images.githubusercontent.com/94936606/222804798-5e00d917-8278-46de-8df3-8ccf740e9c4e.PNG)
