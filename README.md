@@ -152,3 +152,4 @@ With multi-instance
 ![trainingjobmultiinstanceconfigs](https://user-images.githubusercontent.com/94936606/222804816-afa72eee-40c7-4037-aca5-803b353b0300.PNG)
 
 
+EC2 Setup
