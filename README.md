@@ -62,7 +62,7 @@ Bellow can see that data was successfuly uploaded to s3
 ![datains3](https://user-images.githubusercontent.com/94936606/222781235-125d4a7f-a07b-4402-b98e-820dbdef8ea7.PNG)
 
 
-## Training model
+## Hyperparameter tunning
 
 ### Defining enviroment variables for hyperparameter tunning
 
@@ -110,9 +110,20 @@ tuner = HyperparameterTuner(
 ```
 
 
-After we start out training we can see the training job status at SageMaker -> Training -> Training Jobs
+After we start the model training we can see the training job status at SageMaker -> Training -> Training Jobs
 
 ![trainingjobs](https://user-images.githubusercontent.com/94936606/222787406-59f41c0f-57ea-4227-ab7d-3caecdbbda8b.PNG)
+
+
+## Train Model with best hyperparameters values
+
+Withou multi-instance
+
+
+With multi-instance
+
+
+
 
 
 
