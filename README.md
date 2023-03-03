@@ -119,7 +119,7 @@ After we start the model training we can see the training job status at SageMake
 
 Withou multi-instance
 
-Notice that training a model without enable multi-enable took 21 minutes to complete
+Notice that training a model without enable multi-instance took 21 minutes to complete
 
 
 ![trainingwithoutmultiinstance](https://user-images.githubusercontent.com/94936606/222796302-0d04321f-567e-4847-a8a9-d994ee4be04c.PNG)
