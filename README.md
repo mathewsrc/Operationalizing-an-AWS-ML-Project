@@ -17,7 +17,13 @@ Finding s3
 ![finds3](https://user-images.githubusercontent.com/94936606/222781323-66d0ac89-a9d2-4db1-a1fc-b5c0385dccbf.PNG)
 
 
+Next, we create a new bucket by clicking in create a new bucket button and give our S3 bucket a unique name
+
+![creates3bucket](https://user-images.githubusercontent.com/94936606/222782172-43b17e3c-fa2a-4df6-907a-dfad5605576b.PNG)
+
+
 As we can see our bucket was created in S3 
+
 ![s3bucket](https://user-images.githubusercontent.com/94936606/222781516-406d5a78-8453-4af3-8cc0-fec6b80149df.PNG)
 
 
