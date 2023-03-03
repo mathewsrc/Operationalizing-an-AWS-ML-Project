@@ -7,7 +7,7 @@ The right configuration for deployment is a very important step in machine learn
  Train and deploy an image classification model on AWS Sagemaker
 
 
-Setup notebook instance
+## Setup notebook instance
 
 Finding SageMaker in AWS
 
@@ -29,7 +29,7 @@ Bellow you can see a notebook instance called mlops already created
 ![notebookinstance](https://user-images.githubusercontent.com/94936606/222784785-bca7aae8-4c4c-4c6b-b26b-76b9278b511e.PNG)
 
 
-Setup S3 
+## Setup S3 
 
 Finding s3 
 
@@ -46,7 +46,7 @@ As we can see our bucket was created in S3
 ![s3bucket](https://user-images.githubusercontent.com/94936606/222781516-406d5a78-8453-4af3-8cc0-fec6b80149df.PNG)
 
 
-### Uploading data to S3
+Uploading data to S3
 
 The snipped code bellow shows how to donwload data using wget command and upload it to AWS s3 using the cp command
  
@@ -62,7 +62,13 @@ Bellow can see that data was successfuly uploaded to s3
 ![datains3](https://user-images.githubusercontent.com/94936606/222781235-125d4a7f-a07b-4402-b98e-820dbdef8ea7.PNG)
 
 
-Training model
+## Training model
+
+### Defining enviroment variables for hyperparameter tunning
+
+SM_CHANNEL_TRAINING: where the data used to train model is located in AWS S3
+SM_MODEL_DIR: where model artifact will be saved in S3
+SM_OUTPUT_DATA_DIR: where output will be saved in S3
 
 ```
 os.environ['SM_CHANNEL_TRAINING']='s3://mlopsimageclassification/data/'
@@ -70,6 +76,39 @@ os.environ['SM_MODEL_DIR']='s3://mlopsimageclassification/model/'
 os.environ['SM_OUTPUT_DATA_DIR']='s3://mlopsimageclassification/output/'
 tuner.fit({"training": "s3://mlopsimageclassification/data/"})
 ```
+
+For this model two hyperparameters was tunning: learning rate and batch size.
+```
+hyperparameter_ranges = {
+    "learning_rate": ContinuousParameter(0.001, 0.1),
+    "batch_size": CategoricalParameter([32, 64, 128, 256, 512]),
+}
+```
+
+Bellow you can see how hyperparameter tuner and estimator was defined. Notice that we are using a py script as entry point to the estimator, this script contains the code need to train model with different hyperparameters values.
+
+```
+estimator = PyTorch(
+    entry_point="hpo.py",
+    base_job_name='pytorch_dog_hpo',
+    role=role,
+    framework_version="1.4.0",
+    instance_count=1,
+    instance_type="ml.g4dn.xlarge",
+    py_version='py3'
+)
+
+tuner = HyperparameterTuner(
+    estimator,
+    objective_metric_name,
+    hyperparameter_ranges,
+    metric_definitions,
+    max_jobs=2,
+    max_parallel_jobs=1,  # you once have one ml.g4dn.xlarge instance available
+    objective_type=objective_type
+)
+```
+
 
 We can see the training job status at SageMaker -> Training Jobs
 
