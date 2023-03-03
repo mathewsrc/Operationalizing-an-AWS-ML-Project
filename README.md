@@ -110,5 +110,9 @@ tuner = HyperparameterTuner(
 ```
 
 
-We can see the training job status at SageMaker -> Training Jobs
+After we start out training we can see the training job status at SageMaker -> Training -> Training Jobs
+
+![trainingjobs](https://user-images.githubusercontent.com/94936606/222787406-59f41c0f-57ea-4227-ab7d-3caecdbbda8b.PNG)
+
+
 
