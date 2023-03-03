@@ -117,7 +117,7 @@ After we start the model training we can see the training job status at SageMake
 
 ## Train Model with best hyperparameters values
 
-Withou multi-instance
+Without multi-instance
 
 Notice that training a model without enable multi-instance took 21 minutes to complete
 
