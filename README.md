@@ -124,15 +124,26 @@ Notice that training a model without enable multi-enable took 21 minutes to comp
 
 ![trainingwithoutmultiinstance](https://user-images.githubusercontent.com/94936606/222796302-0d04321f-567e-4847-a8a9-d994ee4be04c.PNG)
 
-
-With multi-instance
-
-
 Deploying model
+
+We can check the deployed model in SageMaker -> Inference -> Endpoints
+
+Notice that the model was deployed with one initial instance and a instance type which uses the type ml.m5.large 
 
 ```
 predictor = pytorch_model.deploy(initial_instance_count=1, instance_type='ml.m5.large')
 ```
+
+Bellow we can see the deployed model
+
+
+![modeldeployedwithoutmultiinstance](https://user-images.githubusercontent.com/94936606/222797949-231ec90b-5dcd-46e4-80a8-8ac8047c85a9.PNG)
+
+
+With multi-instance
+
+
+
 
 
 
