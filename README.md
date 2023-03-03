@@ -115,7 +115,7 @@ After we start the model training we can see the training job status at SageMake
 ![trainingjobs](https://user-images.githubusercontent.com/94936606/222787406-59f41c0f-57ea-4227-ab7d-3caecdbbda8b.PNG)
 
 
-## Train Model with best hyperparameters values
+## Training Model with best hyperparameters values
 
 Without multi-instance
 
