@@ -158,14 +158,36 @@ EC2 as others AWS services can be founded by search it by name in AWS
 ![findec2](https://user-images.githubusercontent.com/94936606/222843668-9fc36a82-23db-4569-a758-7512bd59d59a.PNG)
 
 
+First, we must give a name to our instance 
+
+![setupec2name](https://user-images.githubusercontent.com/94936606/222932320-875bae01-4a09-4ed5-870f-0cc8975e9953.PNG)
+
+
+We are now selecting an Amazon Machine Image (AMI), which is a supported and maintained image provided by AWS that contains the necessary information to launch an instance. Since we will be training a deep learning model with PyTorch, we need to select an AMI that supports PyTorch for deep learning.
+
 ![ec2instance](https://user-images.githubusercontent.com/94936606/222844655-55c3bb6b-a01b-4f8f-a2e6-b1de681a11a6.PNG)
+
+
+Next, we need to choose an EC2 instance that is supported by this AMI. According to the documentation, this type of AMI supports the following instances: G3, P3, P3dn, P4d, G5, and G4dn. You can find more information on this at: https://docs.aws.amazon.com/dlami/latest/devguide/appendix-ami-release-notes.html
+
+![setupec2choosinginstance](https://user-images.githubusercontent.com/94936606/222932534-f18476a7-78ca-49b1-a7b1-050be429bf21.PNG)
+
+
+EC2 requires a key pair that can be used, for example, to SSH into our instance from another service. A good example would be SSHing into our instance from AWS Cloud9.
+
+![setupec2creatingapairkey](https://user-images.githubusercontent.com/94936606/222932612-0495725f-212a-4ae9-817a-0ae627322cd5.PNG)
+
+![setupec2createkeypair](https://user-images.githubusercontent.com/94936606/222932682-b54fde71-f88d-48cc-bd8e-c2eac453dfac.png)
+
+
+
+Note: to simplify things, other configurations will be set to their default values.
 
 
 ![amidetails](https://user-images.githubusercontent.com/94936606/222844621-a57b98fc-aa0f-4d68-84ed-33896845f477.PNG)
 
 TODO: Why this instance, was ec2 more faster than notebook instance for training ? Looking into ec2 script what are the diferences between it and jupyter file ?
 
-Supported EC2 instances: G3, P3, P3dn, P4d, G5, G4dn. Release notes: https://docs.aws.amazon.com/dlami/latest/devguide/appendix-ami-release-notes.html
 
 
 Lambda Functions Setup
