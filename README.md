@@ -157,6 +157,9 @@ EC2 as others AWS services can be founded by search it by name in AWS
 
 ![findec2](https://user-images.githubusercontent.com/94936606/222843668-9fc36a82-23db-4569-a758-7512bd59d59a.PNG)
 
+Now we can create our new instance by clicking in Launch instances button
+
+![ec2instance](https://user-images.githubusercontent.com/94936606/222844655-55c3bb6b-a01b-4f8f-a2e6-b1de681a11a6.PNG)
 
 First, we must give a name to our instance 
 
@@ -165,7 +168,10 @@ First, we must give a name to our instance
 
 We are now selecting an Amazon Machine Image (AMI), which is a supported and maintained image provided by AWS that contains the necessary information to launch an instance. Since we will be training a deep learning model with PyTorch, we need to select an AMI that supports PyTorch for deep learning.
 
-![ec2instance](https://user-images.githubusercontent.com/94936606/222844655-55c3bb6b-a01b-4f8f-a2e6-b1de681a11a6.PNG)
+![setupec2choosingami](https://user-images.githubusercontent.com/94936606/222932853-53268971-ce6e-4a5e-b4fd-0c5aef409d4e.PNG)
+
+We can have an overview of the AMI information in this image
+![amidetails](https://user-images.githubusercontent.com/94936606/222844621-a57b98fc-aa0f-4d68-84ed-33896845f477.PNG)
 
 
 Next, we need to choose an EC2 instance that is supported by this AMI. According to the documentation, this type of AMI supports the following instances: G3, P3, P3dn, P4d, G5, and G4dn. You can find more information on this at: https://docs.aws.amazon.com/dlami/latest/devguide/appendix-ami-release-notes.html
@@ -180,14 +186,24 @@ EC2 requires a key pair that can be used, for example, to SSH into our instance 
 ![setupec2createkeypair](https://user-images.githubusercontent.com/94936606/222932682-b54fde71-f88d-48cc-bd8e-c2eac453dfac.png)
 
 
+**Note: to simplify things, other configurations will be set to their default values.**
 
-Note: to simplify things, other configurations will be set to their default values.
+
+Now that we created our instance we can connecting to it following the three images bellow
+
+![connectingtoec2choosinginstance](https://user-images.githubusercontent.com/94936606/222932960-31e1d5a2-59ba-4819-9268-b1ec05449c12.PNG)
+
+![ec2connecting](https://user-images.githubusercontent.com/94936606/222932962-516c012f-64ab-4c62-a9a4-684d6fda557e.PNG)
+
+![ec2connecting2](https://user-images.githubusercontent.com/94936606/222932972-34559c9b-d2c0-419e-979a-69257ce63404.PNG)
 
 
-![amidetails](https://user-images.githubusercontent.com/94936606/222844621-a57b98fc-aa0f-4d68-84ed-33896845f477.PNG)
+If everything works well we are connected to our instance. The last step is activate pytorch virtual enviroment as follows
+
+![ec2activatepytorchvirtualenviroment](https://user-images.githubusercontent.com/94936606/222933025-818a2860-72ed-4a1e-8af4-c9c3eca08966.PNG)
+
 
 TODO: Why this instance, was ec2 more faster than notebook instance for training ? Looking into ec2 script what are the diferences between it and jupyter file ?
-
 
 
 Lambda Functions Setup
@@ -200,6 +216,7 @@ Lambda Functions Setup
 
 ![lambdaconfiguration](https://user-images.githubusercontent.com/94936606/222854048-4e323084-fc5d-4838-8fd9-e5256433343e.PNG)
 
+
 Adding SageMaker access permission to Lambda Function
 
 
@@ -211,6 +228,7 @@ Adding SageMaker access permission to Lambda Function
 
 ![iamsagemakerpermissionsforlambda](https://user-images.githubusercontent.com/94936606/222854174-188a9f7a-3895-4387-b393-9688e53fd18f.PNG)
 
+
 Testing Lambda Function
 
 ![testlambdafunction](https://user-images.githubusercontent.com/94936606/222854866-e2337eea-b024-4e7e-8f96-bf0c0b81f6d1.PNG)
@@ -220,6 +238,7 @@ Adding concurrency to Lambda Function
 ![lambdaversionsetup](https://user-images.githubusercontent.com/94936606/222857369-103c2e2a-3d2b-4cc5-98f8-6751a3e19704.PNG)
 
 ![lambdaconcurrencyconfig](https://user-images.githubusercontent.com/94936606/222857390-3522993a-84d0-4aed-a2da-12e7832bd2af.PNG)
+
 
 Auto-Scaling endpoint
 
@@ -233,7 +252,6 @@ Auto-Scaling endpoint
 
 
 Deleting instances
-
 
 ![stopndeletenotebookinstance](https://user-images.githubusercontent.com/94936606/222857619-da429195-fc35-4b88-be6a-2ebbaea1c268.PNG)
 
