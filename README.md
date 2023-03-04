@@ -198,12 +198,20 @@ Now that we created our instance we can connecting to it following the three ima
 ![ec2connecting2](https://user-images.githubusercontent.com/94936606/222932972-34559c9b-d2c0-419e-979a-69257ce63404.PNG)
 
 
-If everything works well we are connected to our instance. The last step is activate pytorch virtual enviroment as follows
+If everything works well we are connected to our instance. The last step is activate pytorch virtual enviroment by typing source activate pytorch on terminal
 
 ![ec2activatepytorchvirtualenviroment](https://user-images.githubusercontent.com/94936606/222933025-818a2860-72ed-4a1e-8af4-c9c3eca08966.PNG)
 
 
 TODO: Why this instance, was ec2 more faster than notebook instance for training ? Looking into ec2 script what are the diferences between it and jupyter file ?
+
+### EC2 vs Notebook instance for training models
+
+Both services have their own advantages:
+
+EC2 instances can be easily scaled up or down based on computing needs, can be customized to meet specific requirements such as framework (pytroch or tensorflow), number of CPUs, memory size and GPU support and EC2 instances can be optimized for high-performance computing, which can greatly reduce the time it takes to train large machine learning models.
+
+Notebook instances have their own advantages too such as: quick setup as they comes with pre-configured with popular machine learning frameworks and libraries, easy collaboration and integration with others AWS services such as AWS SageMaker, which provides a lot of tools required for machine learning engineering and operations.
 
 
 Lambda Functions Setup
