@@ -153,6 +153,8 @@ With multi-instance
 
 EC2 Setup
 
+EC2 as others AWS services can be founded by search it by name in AWS 
+
 ![findec2](https://user-images.githubusercontent.com/94936606/222843668-9fc36a82-23db-4569-a758-7512bd59d59a.PNG)
 
 
