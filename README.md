@@ -5,6 +5,7 @@ The right configuration for deployment is a very important step in machine learn
 
  Train and deploy an image classification model on AWS Sagemaker
 
+---------
 
 ## Setup notebook instance
 
@@ -27,6 +28,7 @@ Bellow you can see a notebook instance called mlops already created
 
 ![notebookinstance](https://user-images.githubusercontent.com/94936606/222784785-bca7aae8-4c4c-4c6b-b26b-76b9278b511e.PNG)
 
+---------
 
 ## Setup S3 
 
@@ -60,6 +62,7 @@ Bellow can see that data was successfuly uploaded to s3
 
 ![datains3](https://user-images.githubusercontent.com/94936606/222781235-125d4a7f-a07b-4402-b98e-820dbdef8ea7.PNG)
 
+---------
 
 ## Hyperparameter tunning
 
@@ -150,7 +153,7 @@ With multi-instance
 
 ![trainingjobmultiinstanceconfigs](https://user-images.githubusercontent.com/94936606/222804816-afa72eee-40c7-4037-aca5-803b353b0300.PNG)
 
-
+---------
 EC2 Setup
 
 EC2 as others AWS services can be founded by search it by name in AWS 
@@ -202,7 +205,6 @@ If everything works well we are connected to our instance. The last step is acti
 
 ![ec2activatepytorchvirtualenviroment](https://user-images.githubusercontent.com/94936606/222933025-818a2860-72ed-4a1e-8af4-c9c3eca08966.PNG)
 
--------------
 ### EC2 vs Notebook instance for training models
 
 Both services have their own advantages:
@@ -210,23 +212,39 @@ Both services have their own advantages:
 EC2 instances can be easily scaled up or down based on computing needs, can be customized to meet specific requirements such as framework (pytroch or tensorflow), number of CPUs, memory size and GPU support and EC2 instances can be optimized for high-performance computing, which can greatly reduce the time it takes to train large machine learning models.
 
 Notebook instances have their own advantages too such as: quick setup as they comes with pre-configured with popular machine learning frameworks and libraries, easy collaboration and integration with others AWS services such as AWS SageMaker, which provides a lot of tools required for machine learning engineering and operations.
+
 ------------
 
 Lambda Functions Setup
 
+The following images show how to create a AWS Lambda Function: 
+
+Finding Lambda Functions
+
 ![findlambda](https://user-images.githubusercontent.com/94936606/222853992-631e6366-8885-4dd8-b0d9-64a6ab14411c.PNG)
+
+
+Creating a Lambda Function
 
 ![create a function](https://user-images.githubusercontent.com/94936606/222854008-addfa523-2e5d-41d7-bdd8-3c84e1ef0e69.PNG)
 
+Deploying a Lambda Function
 ![lambdadeployfunction](https://user-images.githubusercontent.com/94936606/222854041-8c45084e-ec59-406d-917b-41f15b88f074.PNG)
 
+
+Lambda Function configuration
+
+Notice that we have the ability to adjust the memory and storage requirements based on our specific needs.
 ![lambdaconfiguration](https://user-images.githubusercontent.com/94936606/222854048-4e323084-fc5d-4838-8fd9-e5256433343e.PNG)
 
 
 Adding SageMaker access permission to Lambda Function
 
+We need to add a new policy to our Lambda function so that it can access SageMaker. This can be done through AWS IAM.
 
 ![findiam](https://user-images.githubusercontent.com/94936606/222854122-f0772d0a-7dee-4810-8e8f-5d300fdca799.PNG)
+
+
 
 ![iamroletab](https://user-images.githubusercontent.com/94936606/222854145-4383cd67-d1e6-4d85-b772-0aee1807a48c.PNG)
 
@@ -245,7 +263,7 @@ Adding concurrency to Lambda Function
 
 ![lambdaconcurrencyconfig](https://user-images.githubusercontent.com/94936606/222857390-3522993a-84d0-4aed-a2da-12e7832bd2af.PNG)
 
-
+---------
 Auto-Scaling endpoint
 
 ![endpointruntimesettings](https://user-images.githubusercontent.com/94936606/222857499-e5d3a8c5-1d8e-4086-a33e-3e8972fac5bf.PNG)
@@ -256,7 +274,7 @@ Auto-Scaling endpoint
 
 ![autoscalingcreated](https://user-images.githubusercontent.com/94936606/222857530-9cde4099-48aa-403e-a093-8bc7b01a7dbd.PNG)
 
-
+---------
 Deleting instances
 
 ![stopndeletenotebookinstance](https://user-images.githubusercontent.com/94936606/222857619-da429195-fc35-4b88-be6a-2ebbaea1c268.PNG)
