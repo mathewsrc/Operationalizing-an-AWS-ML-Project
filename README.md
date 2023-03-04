@@ -188,6 +188,37 @@ Adding SageMaker access permission to Lambda Function
 
 ![iamsagemakerpermissionsforlambda](https://user-images.githubusercontent.com/94936606/222854174-188a9f7a-3895-4387-b393-9688e53fd18f.PNG)
 
+Testing Lambda Function
+
+![testlambdafunction](https://user-images.githubusercontent.com/94936606/222854866-e2337eea-b024-4e7e-8f96-bf0c0b81f6d1.PNG)
+
+Adding concurrency to Lambda Function
+
+![lambdaversionsetup](https://user-images.githubusercontent.com/94936606/222857369-103c2e2a-3d2b-4cc5-98f8-6751a3e19704.PNG)
+
+![lambdaconcurrencyconfig](https://user-images.githubusercontent.com/94936606/222857390-3522993a-84d0-4aed-a2da-12e7832bd2af.PNG)
+
+Auto-Scaling endpoint
+
+![endpointruntimesettings](https://user-images.githubusercontent.com/94936606/222857499-e5d3a8c5-1d8e-4086-a33e-3e8972fac5bf.PNG)
+
+![autoscalingnumberinstances](https://user-images.githubusercontent.com/94936606/222857543-2ae15526-6ca3-4b5c-b2c0-8646cc32fb7d.PNG)
+
+![scallingpolicy](https://user-images.githubusercontent.com/94936606/222857563-80cec446-1a80-4174-b589-db8579d4cc3f.PNG)
+
+![autoscalingcreated](https://user-images.githubusercontent.com/94936606/222857530-9cde4099-48aa-403e-a093-8bc7b01a7dbd.PNG)
+
+
+Deleting instances
+
+
+![stopndeletenotebookinstance](https://user-images.githubusercontent.com/94936606/222857619-da429195-fc35-4b88-be6a-2ebbaea1c268.PNG)
+
+![stopnterminateec2](https://user-images.githubusercontent.com/94936606/222857625-a18d30bb-ce74-4e38-a221-4071e7d099f4.PNG)
+
+![deletelambda](https://user-images.githubusercontent.com/94936606/222857648-bb2bbd3f-261c-4135-bab6-c61b59acebc6.PNG)
+
+![deletingendpoint](https://user-images.githubusercontent.com/94936606/222857661-274b5459-b851-4c6d-acd2-ca62e838fe41.PNG)
 
 
 
