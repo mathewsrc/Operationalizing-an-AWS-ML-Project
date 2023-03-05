@@ -16,19 +16,19 @@ Finding SageMaker in AWS
 ![findsagemaker](https://user-images.githubusercontent.com/94936606/222783294-3d42a7cb-32bf-498a-916c-95feefe29724.PNG)
 
 
-In SageMaker we then create a notebook instance by looking for Notebook -> Notebook Instances
+In SageMaker we then create a notebook instance in Notebook -> Notebook Instances -> Create notebook instance button
 
 ![createanotebookinstance](https://user-images.githubusercontent.com/94936606/222784137-37d422bd-db21-4bb1-89ff-70dca3523689.PNG)
 
 
-Then we create a new instance choosing a notebook instance name and type
+Then we create a new instance choosing a notebook instance name and type. For this project ml.m5.xlarge instance type was selected
 
-![setupnotebookinstance](https://user-images.githubusercontent.com/94936606/222784354-13b28a70-3078-40a0-93e0-e1e0622d34d1.PNG)
+![setupnotebooksetinstance](https://user-images.githubusercontent.com/94936606/222964999-57346d9c-4243-40e8-891a-c53e359436dc.png)
 
 
 Bellow you can see a notebook instance called mlops already created
 
-![notebookinstance](https://user-images.githubusercontent.com/94936606/222784785-bca7aae8-4c4c-4c6b-b26b-76b9278b511e.PNG)
+![notebookcreated](https://user-images.githubusercontent.com/94936606/222965050-f08bcb83-7111-4d16-991f-a5a5401e313f.png)
 
 ---------
 
