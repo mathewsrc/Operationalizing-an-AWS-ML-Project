@@ -47,7 +47,7 @@ As we can see our bucket was created in S3
 ![s3bucket](https://user-images.githubusercontent.com/94936606/222781516-406d5a78-8453-4af3-8cc0-fec6b80149df.PNG)
 
 
-Uploading data to S3
+### Uploading data to S3
 
 The snipped code bellow shows how to donwload data using wget command and upload it to AWS s3 using the cp command
  
@@ -119,7 +119,7 @@ After we start the model training we can see the training job status at SageMake
 
 ## Training Model with best hyperparameters values
 
-Without multi-instance
+**Without multi-instance**
 
 Notice that training a model without enable multi-instance took 21 minutes to complete
 
@@ -129,7 +129,7 @@ Notice that training a model without enable multi-instance took 21 minutes to co
 ![trainingjobwithoutmultiinstanceconfigs](https://user-images.githubusercontent.com/94936606/222804951-c9385220-28da-4cc4-b6d8-b71f52a0f0ff.PNG)
 
 
-Deploying model
+**Deploying model**
 
 We can check the deployed model in SageMaker -> Inference -> Endpoints
 
@@ -145,7 +145,7 @@ Bellow we can see the deployed model
 ![modeldeployedwithoutmultiinstance](https://user-images.githubusercontent.com/94936606/222797949-231ec90b-5dcd-46e4-80a8-8ac8047c85a9.PNG)
 
 
-With multi-instance
+**With multi-instance**
 
 
 ![trainingjobmultiinstance](https://user-images.githubusercontent.com/94936606/222804798-5e00d917-8278-46de-8df3-8ccf740e9c4e.PNG)
@@ -154,7 +154,8 @@ With multi-instance
 ![trainingjobmultiinstanceconfigs](https://user-images.githubusercontent.com/94936606/222804816-afa72eee-40c7-4037-aca5-803b353b0300.PNG)
 
 ---------
-EC2 Setup
+
+## EC2 Setup
 
 EC2 as others AWS services can be founded by search it by name in AWS 
 
@@ -217,7 +218,7 @@ Notebook instances have their own advantages too such as: quick setup as they co
 
 ------------
 
-Lambda Functions Setup
+## Lambda Functions Setup
 
 The following images show how to create a AWS Lambda Function: 
 
@@ -326,13 +327,28 @@ Now we see that our endpoint has auto-scaling enabled
 ![autoscalingcreated](https://user-images.githubusercontent.com/94936606/222857530-9cde4099-48aa-403e-a093-8bc7b01a7dbd.PNG)
 
 ---------
+
+## Deleting EC2 instances, Lambda Functions, and Endpoints
+
 To avoid any cost we can delete all services and instances used in this project. Bellow you can see how to terminate, delete or stop services and instances in AWS.
+
+
+Deleting the notebook instance. Notebook instances are located in SageMaker -> Notebooks -> Notebook Instances
 
 ![stopndeletenotebookinstance](https://user-images.githubusercontent.com/94936606/222857619-da429195-fc35-4b88-be6a-2ebbaea1c268.PNG)
 
+
+Deleting EC2 instances. EC2 instances are located in EC2 -> Instances
+
 ![stopnterminateec2](https://user-images.githubusercontent.com/94936606/222857625-a18d30bb-ce74-4e38-a221-4071e7d099f4.PNG)
 
+
+Deleting Lambda Functions. Lambda Functions are located in Lambda -> Functions
+
 ![deletelambda](https://user-images.githubusercontent.com/94936606/222857648-bb2bbd3f-261c-4135-bab6-c61b59acebc6.PNG)
+
+
+Deleting Endpoints. Endpoints are located in SageMaker -> Endpoints
 
 ![deletingendpoint](https://user-images.githubusercontent.com/94936606/222857661-274b5459-b851-4c6d-acd2-ca62e838fe41.PNG)
 
