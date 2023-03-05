@@ -355,7 +355,7 @@ Deleting Endpoints. Endpoints are located in SageMaker -> Endpoints
 ![deletingendpoint](https://user-images.githubusercontent.com/94936606/222857661-274b5459-b851-4c6d-acd2-ca62e838fe41.PNG)
 
 
-References
+## References
 
 https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html
 
