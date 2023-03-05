@@ -174,6 +174,7 @@ We are now selecting an Amazon Machine Image (AMI), which is a supported and mai
 ![setupec2choosingami](https://user-images.githubusercontent.com/94936606/222932853-53268971-ce6e-4a5e-b4fd-0c5aef409d4e.PNG)
 
 We can have an overview of the AMI information in this image
+
 ![amidetails](https://user-images.githubusercontent.com/94936606/222844621-a57b98fc-aa0f-4d68-84ed-33896845f477.PNG)
 
 
@@ -193,6 +194,7 @@ EC2 requires a key pair that can be used, for example, to SSH into our instance 
 
 
 Now that we created our instance we can connecting to it following the three images bellow
+
 
 ![connectingtoec2choosinginstance](https://user-images.githubusercontent.com/94936606/222932960-31e1d5a2-59ba-4819-9268-b1ec05449c12.PNG)
 
@@ -229,6 +231,7 @@ Creating a Lambda Function
 ![create a function](https://user-images.githubusercontent.com/94936606/222854008-addfa523-2e5d-41d7-bdd8-3c84e1ef0e69.PNG)
 
 Deploying a Lambda Function
+
 ![lambdadeployfunction](https://user-images.githubusercontent.com/94936606/222854041-8c45084e-ec59-406d-917b-41f15b88f074.PNG)
 
 
@@ -244,18 +247,28 @@ We need to add a new policy to our Lambda function so that it can access SageMak
 
 ![findiam](https://user-images.githubusercontent.com/94936606/222854122-f0772d0a-7dee-4810-8e8f-5d300fdca799.PNG)
 
-
+First select roles
 
 ![iamroletab](https://user-images.githubusercontent.com/94936606/222854145-4383cd67-d1e6-4d85-b772-0aee1807a48c.PNG)
 
+Next, we need find our Lambda Function and click on it
+
+![imaselectinglambdafunctionrole](https://user-images.githubusercontent.com/94936606/222934907-7322b2f6-08ce-483c-b3cb-c922324f3369.png)
+
+Click on Add policies button and then on Attach policies button
+
 ![iamaddpermissions](https://user-images.githubusercontent.com/94936606/222854165-88d3f1c9-4277-4dce-9e9d-3f08f09be906.PNG)
+
+Finally, we should search for SageMaker and select an appropriate policy. While the full access option may be the simplest choice, it's important to remember that granting excessive permissions to a service can pose security risks. Therefore, it's advisable to carefully consider the level of access required for your specific use case.
 
 ![iamsagemakerpermissionsforlambda](https://user-images.githubusercontent.com/94936606/222854174-188a9f7a-3895-4387-b393-9688e53fd18f.PNG)
 
 
-Testing Lambda Function
+Now with the right permission we can test our Lambda Function
 
 ![testlambdafunction](https://user-images.githubusercontent.com/94936606/222854866-e2337eea-b024-4e7e-8f96-bf0c0b81f6d1.PNG)
+
+
 
 Adding concurrency to Lambda Function
 
