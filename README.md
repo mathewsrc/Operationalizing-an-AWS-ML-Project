@@ -264,10 +264,23 @@ Finally, we should search for SageMaker and select an appropriate policy. While 
 ![iamsagemakerpermissionsforlambda](https://user-images.githubusercontent.com/94936606/222854174-188a9f7a-3895-4387-b393-9688e53fd18f.PNG)
 
 
-Now with the right permission we can test our Lambda Function
+Now with the right permission we can create a new test to test our Lambda Function. 
+
+First click on Test button
 
 ![testlambdafunction](https://user-images.githubusercontent.com/94936606/222854866-e2337eea-b024-4e7e-8f96-bf0c0b81f6d1.PNG)
 
+Now give a name for the test
+
+![lambdafunctionconfiguringtest](https://user-images.githubusercontent.com/94936606/222935202-2df64dfd-951d-4f7e-bd5a-42ffdfc30ecf.png)
+
+Replace the default JSON with the following JSON data, as shown in the image below
+
+```
+{ "url": "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/20113314/Carolina-Dog-standing-outdoors.jpg" }
+```
+
+![addjsontotestlambda](https://user-images.githubusercontent.com/94936606/222935233-27d6b70c-e355-4424-86e0-251d14735996.PNG)
 
 
 Adding concurrency to Lambda Function
