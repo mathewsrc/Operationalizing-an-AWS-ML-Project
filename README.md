@@ -5,8 +5,6 @@
 
 The right configuration for deployment is a very important step in machine learning operations as its can avoid problems such as high costs and bad performance. Some examples of configurations for production deployment of a model includes computer resources such as machine instance type and number of instances for training and deployment, security since poor security configuration can leads to data leaks or performance issues. By implement the right configuration we can have a high-throughtput and low-lantecy machine learning model in production.
 
- Train and deploy an image classification model on AWS Sagemaker
-
 ---------
 
 ## Setup notebook instance
@@ -30,6 +28,16 @@ Bellow you can see a notebook instance called mlops already created
 
 ![notebookcreated](https://user-images.githubusercontent.com/94936606/222965050-f08bcb83-7111-4d16-991f-a5a5401e313f.png)
 
+With the notebook instance create we can upload a jupyter notebook, the script.py file to train our deep learning image classification model, the inference.py script and an image for test. Bellow you can find the list of files that we need to upload:
+
+train_and_deploy-solution.ipynb
+hpo.py
+inference2.py
+lab.jpg
+
+Before we can start to train our model we need first create a S3 bucket where we will upload our train, validation and test data to. So let's do it now :)
+
+
 ---------
 
 ## Setup S3 
@@ -51,7 +59,7 @@ As we can see our bucket was created in S3
 
 ### Uploading data to S3
 
-The snipped code bellow shows how to donwload data using wget command and upload it to AWS s3 using the cp command
+The snipped code bellow shows how to donwload data using wget command and upload it to AWS s3 using the cp command.
  
  ```
  %%capture
@@ -59,10 +67,15 @@ The snipped code bellow shows how to donwload data using wget command and upload
 !unzip dogImages.zip
 !aws s3 cp dogImages s3://mlopsimageclassification/data/ --recursive
 ```
+**Note:  This code are located in the train_and_deploy.ipynb**
 
 Bellow can see that data was successfuly uploaded to s3
 
 ![datains3](https://user-images.githubusercontent.com/94936606/222781235-125d4a7f-a07b-4402-b98e-820dbdef8ea7.PNG)
+
+Now that we have our data in S3 we can train our model. 
+
+So let's starting by reviewing some important information you will see in the jupyter notebook
 
 ---------
 
@@ -74,11 +87,26 @@ SM_CHANNEL_TRAINING: where the data used to train model is located in AWS S3
 SM_MODEL_DIR: where model artifact will be saved in S3
 SM_OUTPUT_DATA_DIR: where output will be saved in S3
 
+
+Here we are passing some paths to our S3 which will be used by the notebook instance to get data, save model and output
 ```
 os.environ['SM_CHANNEL_TRAINING']='s3://mlopsimageclassification/data/'
 os.environ['SM_MODEL_DIR']='s3://mlopsimageclassification/model/'
 os.environ['SM_OUTPUT_DATA_DIR']='s3://mlopsimageclassification/output/'
-tuner.fit({"training": "s3://mlopsimageclassification/data/"})
+```
+
+Here we can see how we can access the enviroment variables passed to the HypeparameterTuner in hpo.py script
+
+```
+if __name__=='__main__':
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--learning_rate', type=float)
+    parser.add_argument('--batch_size', type=int)
+    parser.add_argument('--data', type=str, default=os.environ['SM_CHANNEL_TRAINING'])
+    parser.add_argument('--model_dir', type=str, default=os.environ['SM_MODEL_DIR'])
+    parser.add_argument('--output_dir', type=str, default=os.environ['SM_OUTPUT_DATA_DIR'])
+    
+    args=parser.parse_args()
 ```
 
 For this model two hyperparameters was tunning: learning rate and batch size.
@@ -89,7 +117,7 @@ hyperparameter_ranges = {
 }
 ```
 
-Bellow you can see how hyperparameter tuner and estimator was defined. Notice that we are using a py script as entry point to the estimator, this script contains the code need to train model with different hyperparameters values.
+Bellow you can see how hyperparameter tuner and estimator was defined. Notice that we are using a py script (hpo.py) as entry point to the estimator, this script contains the code need to train model with different hyperparameters values.
 
 ```
 estimator = PyTorch(
@@ -111,7 +139,12 @@ tuner = HyperparameterTuner(
     max_parallel_jobs=1,  # you once have one ml.g4dn.xlarge instance available
     objective_type=objective_type
 )
+
+tuner.fit({"training": "s3://mlopsimageclassification/data/"})
 ```
+
+**Note: we are passing a S3 path where the data for training, validation and testing are loacated to the HyperparameterTuner fit method**
+
 
 
 After we start the model training we can see the training job status at SageMaker -> Training -> Training Jobs
@@ -181,7 +214,7 @@ We can have an overview of the AMI information in this image
 ![amidetails](https://user-images.githubusercontent.com/94936606/222844621-a57b98fc-aa0f-4d68-84ed-33896845f477.PNG)
 
 
-Next, we need to choose an EC2 instance that is supported by this AMI. According to the documentation, this type of AMI supports the following instances: G3, P3, P3dn, P4d, G5, and G4dn. You can find more information on this at: https://docs.aws.amazon.com/dlami/latest/devguide/appendix-ami-release-notes.html
+Next, we need to choose an EC2 instance that is supported by this AMI. According to the documentation, this type of AMI supports the following instances: G3, P3, P3dn, P4d, G5, and G4dn. 
 
 ![setupec2choosinginstance](https://user-images.githubusercontent.com/94936606/222932534-f18476a7-78ca-49b1-a7b1-050be429bf21.PNG)
 
@@ -209,6 +242,56 @@ Now that we created our instance we can connecting to it following the three ima
 If everything works well we are connected to our instance. The last step is activate pytorch virtual enviroment by typing source activate pytorch on terminal
 
 ![ec2activatepytorchvirtualenviroment](https://user-images.githubusercontent.com/94936606/222933025-818a2860-72ed-4a1e-8af4-c9c3eca08966.PNG)
+
+
+Now the fun part :)
+
+First we need to donwload the dataset to EC2 by running the following command on terminal
+
+```
+wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zipunzip dogImages.zip
+```
+
+Since we are downloading our data to EC2, we can retrieve the path in the training script as follows. This is a key difference between training the model in a notebook instance versus training it on EC2
+
+```
+data = 'dogImages'
+train_data_path = os.path.join(data, 'train')
+test_data_path = os.path.join(data, 'test')
+validation_data_path=os.path.join(data, 'valid')
+```
+
+Next, we are going to create a directory to save the trained models
+
+```
+mkdir TrainedModels
+```
+
+Now, we need to create a Python file and paste the training code into it
+
+Use vim to create an empy file
+
+```
+vim solution.py
+```
+
+Use the following command so that we paste our code into solution.py
+
+```
+:set paste
+```
+
+Copy the code located in https://github.com/mathewsrc/Operationalizing-an-AWS-ML-Project/blob/master/ec2train1.py and paste into solution.py
+
+```
+:wq! + Press Enter
+```
+
+Now we can run our script to train the model
+
+```
+python solution.py
+```
 
 ### EC2 vs Notebook instance for training models
 
@@ -241,7 +324,25 @@ Deploying a Lambda Function
 Lambda Function configuration
 
 Notice that we have the ability to adjust the memory and storage requirements based on our specific needs.
+
 ![lambdaconfiguration](https://user-images.githubusercontent.com/94936606/222854048-4e323084-fc5d-4838-8fd9-e5256433343e.PNG)
+
+After we create the Lambda Function we can replace the default code with the code located in https://github.com/mathewsrc/Operationalizing-an-AWS-ML-Project/blob/master/lamdafunction.py
+
+Since a Lambda function will invoke a SageMaker endpoint, we need to grant permission to the Lambda function to access SageMaker
+
+```
+runtime=boto3.Session().client('sagemaker-runtime')
+    
+    response=runtime.invoke_endpoint(EndpointName=endpoint_Name,
+                                    ContentType="application/json",
+                                    Accept='application/json',
+                                    #Body=bytearray(x)
+                                    Body=json.dumps(bs))
+    
+    result=response['Body'].read().decode('utf-8')
+    sss=json.loads(result)
+```
 
 
 Adding SageMaker access permission to Lambda Function
