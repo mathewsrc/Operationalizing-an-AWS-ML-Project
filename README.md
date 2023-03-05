@@ -307,16 +307,26 @@ Our final task is to select an integer value for concurrency. Provisioned concur
 ---------
 ### Auto-Scaling endpoint
 
+Auto scaling is a powerful feature of SageMaker that allows for dynamic adjustment of the number of instances used with deployed models based on changes in workload. With auto scaling, SageMaker automatically increases or decreases the number of instances, ensuring that we only pay for the instances that are actively running.
+
+We can enable auto-scaling in SageMaker -> Endpoints -> Endpoint runtime settings
+
 ![endpointruntimesettings](https://user-images.githubusercontent.com/94936606/222857499-e5d3a8c5-1d8e-4086-a33e-3e8972fac5bf.PNG)
+
+We can increase the maximum of instances for our endpoint
 
 ![autoscalingnumberinstances](https://user-images.githubusercontent.com/94936606/222857543-2ae15526-6ca3-4b5c-b2c0-8646cc32fb7d.PNG)
 
+We can define a scaling policy to control how auto-scaling works. In this example, the 'Target value' was set to 20, meaning that when our endpoint receives 20 requests simultaneously, auto-scaling will be triggered, and the number of instances will be increased. The 'Scale In' and 'Scale Out' parameters were both set to 30 seconds, which controls the amount of time auto-scaling should wait before increasing or decreasing the number of instances.
+
 ![scallingpolicy](https://user-images.githubusercontent.com/94936606/222857563-80cec446-1a80-4174-b589-db8579d4cc3f.PNG)
+
+Now we see that our endpoint has auto-scaling enabled
 
 ![autoscalingcreated](https://user-images.githubusercontent.com/94936606/222857530-9cde4099-48aa-403e-a093-8bc7b01a7dbd.PNG)
 
 ---------
-Deleting instances
+To avoid any cost we can delete all services and instances used in this project. Bellow you can see how to terminate, delete or stop services and instances in AWS.
 
 ![stopndeletenotebookinstance](https://user-images.githubusercontent.com/94936606/222857619-da429195-fc35-4b88-be6a-2ebbaea1c268.PNG)
 
