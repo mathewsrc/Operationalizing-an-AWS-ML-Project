@@ -95,7 +95,7 @@ os.environ['SM_MODEL_DIR']='s3://mlopsimageclassification/model/'
 os.environ['SM_OUTPUT_DATA_DIR']='s3://mlopsimageclassification/output/'
 ```
 
-Here we can see how we can access the enviroment variables passed to the HypeparameterTuner in hpo.py script
+Here we can see how we can access the enviroment variables in hpo.py script
 
 ```
 if __name__=='__main__':
