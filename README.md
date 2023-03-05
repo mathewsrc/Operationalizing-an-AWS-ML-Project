@@ -283,6 +283,7 @@ Replace the default JSON with the following JSON data, as shown in the image bel
 ![addjsontotestlambda](https://user-images.githubusercontent.com/94936606/222935233-27d6b70c-e355-4424-86e0-251d14735996.PNG)
 
 
+## Scaling Lambda Function and Endpoint
 
 ### Adding concurrency to Lambda Function
 
@@ -290,7 +291,16 @@ By default a Lambda Function can only respond one request at once. One way to ch
 
 ![lambdaversionsetup](https://user-images.githubusercontent.com/94936606/222857369-103c2e2a-3d2b-4cc5-98f8-6751a3e19704.PNG)
 
-Now we can add concurrency
+Add a description for the new version and click on Publish button
+
+![creatinganewversionforlambda](https://user-images.githubusercontent.com/94936606/222935573-323457f8-3146-4ca4-9602-d93c29bbf0fe.png)
+
+
+Now we can add concurrency in Configuration -> Provisioned concurrency -> Edit button
+
+![provisionedconcurrencyforlambda](https://user-images.githubusercontent.com/94936606/222935601-98a902ec-1ede-4f6d-9cf5-0b91c5c6fee3.png)
+
+Our final task is to select an integer value for concurrency. Provisioned concurrency initializes a specified number of execution environments, enabling them to respond immediately. Therefore, a higher concurrency level results in reduced latency. In this example the concurrency was set to two so this Lambda Functions can handle two requests at once which could not be enough for services with high demand.
 
 ![lambdaconcurrencyconfig](https://user-images.githubusercontent.com/94936606/222857390-3522993a-84d0-4aed-a2da-12e7832bd2af.PNG)
 
