@@ -1,5 +1,7 @@
 # Operationalizing-an-AWS-ML-Project
 
+**Project developed for AWS Machine Learning Engineer Scholarship offered by Udacity (2023)**
+
 
 The right configuration for deployment is a very important step in machine learning operations as its can avoid problems such as high costs and bad performance. Some examples of configurations for production deployment of a model includes computer resources such as machine instance type and number of instances for training and deployment, security since poor security configuration can leads to data leaks or performance issues. By implement the right configuration we can have a high-throughtput and low-lantecy machine learning model in production.
 
@@ -353,4 +355,22 @@ Deleting Endpoints. Endpoints are located in SageMaker -> Endpoints
 ![deletingendpoint](https://user-images.githubusercontent.com/94936606/222857661-274b5459-b851-4c6d-acd2-ca62e838fe41.PNG)
 
 
+References
 
+https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html
+
+https://docs.aws.amazon.com/sagemaker/latest/dg/nbi.html
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html
+
+https://docs.aws.amazon.com/s3/index.html?nc2=h_ql_doc_s3
+
+https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
+
+https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html
+
+https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html
+
+https://docs.aws.amazon.com/sagemaker/latest/dg/endpoint-auto-scaling.html
