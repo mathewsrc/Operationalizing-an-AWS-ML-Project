@@ -283,14 +283,19 @@ Replace the default JSON with the following JSON data, as shown in the image bel
 ![addjsontotestlambda](https://user-images.githubusercontent.com/94936606/222935233-27d6b70c-e355-4424-86e0-251d14735996.PNG)
 
 
-Adding concurrency to Lambda Function
+
+### Adding concurrency to Lambda Function
+
+By default a Lambda Function can only respond one request at once. One way to change that is to use concurrency so that the Lambda Function can be responds to multiple requests at once. Before add concurrency we need to configure a version which can be done in Configuration tab.
 
 ![lambdaversionsetup](https://user-images.githubusercontent.com/94936606/222857369-103c2e2a-3d2b-4cc5-98f8-6751a3e19704.PNG)
+
+Now we can add concurrency
 
 ![lambdaconcurrencyconfig](https://user-images.githubusercontent.com/94936606/222857390-3522993a-84d0-4aed-a2da-12e7832bd2af.PNG)
 
 ---------
-Auto-Scaling endpoint
+### Auto-Scaling endpoint
 
 ![endpointruntimesettings](https://user-images.githubusercontent.com/94936606/222857499-e5d3a8c5-1d8e-4086-a33e-3e8972fac5bf.PNG)
 
