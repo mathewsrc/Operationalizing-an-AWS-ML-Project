@@ -313,10 +313,12 @@ Finding Lambda Functions
 
 
 Creating a Lambda Function
+To create a Lambda Function click on Create Lambda Function button
 
 ![create a function](https://user-images.githubusercontent.com/94936606/222854008-addfa523-2e5d-41d7-bdd8-3c84e1ef0e69.PNG)
 
 Deploying a Lambda Function
+To update our Lambda Function we need to click on Deploy button. The Deploy button is located to the left of Test button
 
 ![lambdadeployfunction](https://user-images.githubusercontent.com/94936606/222854041-8c45084e-ec59-406d-917b-41f15b88f074.PNG)
 
