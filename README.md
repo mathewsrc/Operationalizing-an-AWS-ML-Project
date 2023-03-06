@@ -320,7 +320,7 @@ To create a Lambda Function click on Create a function button
 
 Deploying a Lambda Function
 
-To update our Lambda Function we need to click on Deploy button. The Deploy button is located to the left of Test button
+To update our Lambda Function we need to click on Deploy button. The Deploy button is located to the right of Test button
 
 ![lambdadeployfunction](https://user-images.githubusercontent.com/94936606/222854041-8c45084e-ec59-406d-917b-41f15b88f074.PNG)
 
