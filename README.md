@@ -359,7 +359,7 @@ Next, we need find our Lambda Function and click on it
 
 ![imaselectinglambdafunctionrole](https://user-images.githubusercontent.com/94936606/222934907-7322b2f6-08ce-483c-b3cb-c922324f3369.png)
 
-Click on Add policies button and then on Attach policies button
+Click on Add permissions button and then on Attach policies button
 
 ![iamaddpermissions](https://user-images.githubusercontent.com/94936606/222854165-88d3f1c9-4277-4dce-9e9d-3f08f09be906.PNG)
 
