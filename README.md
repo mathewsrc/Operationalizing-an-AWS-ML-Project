@@ -84,7 +84,9 @@ So let's starting by reviewing some important information you will see in the ju
 ### Defining enviroment variables for hyperparameter tunning
 
 SM_CHANNEL_TRAINING: where the data used to train model is located in AWS S3
+
 SM_MODEL_DIR: where model artifact will be saved in S3
+
 SM_OUTPUT_DATA_DIR: where output will be saved in S3
 
 
