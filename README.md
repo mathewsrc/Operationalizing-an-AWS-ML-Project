@@ -67,6 +67,7 @@ The snipped code bellow shows how to donwload data using wget command and upload
 !unzip dogImages.zip
 !aws s3 cp dogImages s3://mlopsimageclassification/data/ --recursive
 ```
+
 > **Note**
 > This code are located in the train_and_deploy.ipynb
 
@@ -148,7 +149,8 @@ tuner.fit({"training": "s3://mlopsimageclassification/data/"})
 ```
 
 > **Note**
->  We are passing a S3 path where the data for training, validation and testing are loacated to the HyperparameterTuner fit method
+> We are passing a S3 path where the data for training, validation and testing are loacated to the HyperparameterTuner fit method
+  
 
 After we start the model training we can see the training job status at SageMaker -> Training -> Training Jobs
 
@@ -228,9 +230,8 @@ EC2 requires a key pair that can be used, for example, to SSH into our instance 
 
 ![setupec2createkeypair](https://user-images.githubusercontent.com/94936606/222932682-b54fde71-f88d-48cc-bd8e-c2eac453dfac.png)
 
-
-> **Note**:
-> To simplify things, other configurations will be set to their default values.
+> **Note**
+> To simplify things, other configurations will be set to their default values
 
 
 Now that we created our instance we can connecting to it following the three images bellow
