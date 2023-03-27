@@ -61,7 +61,7 @@ As we can see our bucket was created in S3
 
 The snipped code bellow shows how to donwload data using wget command and upload it to AWS s3 using the cp command.
  
- ```
+ ```bash
  %%capture
 !wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip
 !unzip dogImages.zip
@@ -91,7 +91,7 @@ SM_OUTPUT_DATA_DIR: where output will be saved in S3
 
 
 Here we are passing some paths to our S3 which will be used by the notebook instance to get data, save model and output
-```
+```python
 os.environ['SM_CHANNEL_TRAINING']='s3://mlopsimageclassification/data/'
 os.environ['SM_MODEL_DIR']='s3://mlopsimageclassification/model/'
 os.environ['SM_OUTPUT_DATA_DIR']='s3://mlopsimageclassification/output/'
@@ -99,7 +99,7 @@ os.environ['SM_OUTPUT_DATA_DIR']='s3://mlopsimageclassification/output/'
 
 Here we can see how we can access the enviroment variables in hpo.py script
 
-```
+```python
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('--learning_rate', type=float)
@@ -112,7 +112,8 @@ if __name__=='__main__':
 ```
 
 For this model two hyperparameters was tunning: learning rate and batch size.
-```
+
+```python
 hyperparameter_ranges = {
     "learning_rate": ContinuousParameter(0.001, 0.1),
     "batch_size": CategoricalParameter([32, 64, 128, 256, 512]),
@@ -121,7 +122,7 @@ hyperparameter_ranges = {
 
 Bellow you can see how hyperparameter tuner and estimator was defined. Notice that we are using a py script (hpo.py) as entry point to the estimator, this script contains the code need to train model with different hyperparameters values.
 
-```
+```python
 estimator = PyTorch(
     entry_point="hpo.py",
     base_job_name='pytorch_dog_hpo',
@@ -172,7 +173,7 @@ We can check the deployed model in SageMaker -> Inference -> Endpoints
 
 Notice that the model was deployed with one initial instance and a instance type which uses the type ml.m5.large 
 
-```
+```python
 predictor = pytorch_model.deploy(initial_instance_count=1, instance_type='ml.m5.large')
 ```
 
@@ -250,13 +251,13 @@ Now the fun part :)
 
 First we need to donwload the dataset to EC2 by running the following command on terminal
 
-```
+```bash
 wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zipunzip dogImages.zip
 ```
 
 Since we are downloading our data to EC2, we can retrieve the path in the training script as follows. This is a key difference between training the model in a notebook instance versus training it on EC2
 
-```
+```python
 data = 'dogImages'
 train_data_path = os.path.join(data, 'train')
 test_data_path = os.path.join(data, 'test')
@@ -265,7 +266,7 @@ validation_data_path=os.path.join(data, 'valid')
 
 Next, we are going to create a directory to save the trained models
 
-```
+```bash
 mkdir TrainedModels
 ```
 
@@ -273,25 +274,25 @@ Now, we need to create a Python file and paste the training code into it
 
 Use vim to create an empy file
 
-```
+```bash
 vim solution.py
 ```
 
 Use the following command so that we paste our code into solution.py
 
-```
+```bash
 :set paste
 ```
 
 Copy the code located in https://github.com/mathewsrc/Operationalizing-an-AWS-ML-Project/blob/master/ec2train1.py and paste into solution.py
 
-```
+```bash
 :wq! + Press Enter
 ```
 
 Now we can run our script to train the model
 
-```
+```python
 python solution.py
 ```
 
@@ -337,7 +338,7 @@ After we create the Lambda Function we can replace the default code with the cod
 
 Since a Lambda function will invoke a SageMaker endpoint, we need to grant permission to the Lambda function to access SageMaker
 
-```
+```python
 runtime=boto3.Session().client('sagemaker-runtime')
     
     response=runtime.invoke_endpoint(EndpointName=endpoint_Name,
