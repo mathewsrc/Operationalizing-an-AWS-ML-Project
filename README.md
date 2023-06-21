@@ -336,7 +336,7 @@ Notice that we have the ability to adjust the memory and storage requirements ba
 
 ![lambdaconfiguration](https://user-images.githubusercontent.com/94936606/222854048-4e323084-fc5d-4838-8fd9-e5256433343e.PNG)
 
-After we create the Lambda Function we can replace the default code with the code located in https://github.com/mathewsrc/Operationalizing-an-AWS-ML-Project/blob/master/lamdafunction.py
+After we create the Lambda Function we can replace the default code with the code located in [https://github.com/mathewsrc/Operationalizing-an-AWS-ML-Project/blob/master/lamdafunction.py](https://github.com/mathewsrc/Operationalizing-an-AWS-ML-Project/blob/master/lambdafunction.py)
 
 Since a Lambda function will invoke a SageMaker endpoint, we need to grant permission to the Lambda function to access SageMaker
 
